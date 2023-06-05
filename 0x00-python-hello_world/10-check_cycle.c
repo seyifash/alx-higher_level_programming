@@ -17,7 +17,9 @@ int check_cycle(listint_t *list)
 	checklist->next != NULL)
 	{
 	if (currentlist == checklist)
+	{
 		return (1);
+	}
 		currentlist = currentlist->next;
 		checklist = checklist->next->next;
 	}
