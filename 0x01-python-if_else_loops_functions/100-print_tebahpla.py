@@ -1,3 +1,5 @@
 #!/usr/bin/python3
-for char_code in range(ord('Z'), ord('A') - 1, -1):
-    print(chr(char_code + 32 if char_code % 2 == 0 else char_code), end='')
+i = 0
+for c in range(ord('z'), ord('a') - 1, -1):
+    print("{}".format(chr(c - i)), end="")
+    i = 32 if i == 0 else 0
