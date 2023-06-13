@@ -1,29 +1,6 @@
 #include "lists.h"
 #include <stdio.h>
 /**
- * reverse - reverses a singly linke list
- * @head: pointer to the first node in the list
- *
- * Return: returns the reversed list
- */
-listint_t *reverse(listint_t **head)
-{
-	listint_t *prev = NULL;
-	listint_t *current = *head;
-	listint_t *next = NULL;
-
-	while (current != NULL)
-	{
-	next = current->next;
-	current->next = prev;
-	prev = current;
-	current = next;
-	}
-
-	return (prev);
-}
-
-/**
  * is_palindrome - checks if a singly linked list is a plaindrome
  * @head: the head pointer
  *
@@ -31,17 +8,37 @@ listint_t *reverse(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *original = *head;
-	listint_t *reversed = reverse(head);
+	int length = 0, middle = 0, i;
+	listint_t *current = *head;
+	listint_t *prev = NULL, *next = NULL;
 
-	while (original != NULL && reversed != NULL)
+	while (current != NULL)
 	{
-	if (original->n != reversed->n)
+	length++;
+	current = current->next;
+	}
+	middle = length / 2;
+	current = *head;
+	for (i = 0; i < middle; i++)
+	{
+	next = current->next;
+	current->next = prev;
+	prev = current;
+	current = next;
+	}
+	if (length % 2 != 0)
+	{
+	current = current->next;
+	}
+	while (current != NULL && prev != NULL)
+	{
+	if (current->n != prev->n)
 	{
 	return (0);
 	}
-	original = original->next;
-	reversed = reversed->next;
+	current = current->next;
+	prev = prev->next;
 	}
+
 	return (1);
 }
