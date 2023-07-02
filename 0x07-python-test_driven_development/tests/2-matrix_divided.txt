@@ -1,0 +1,175 @@
+# 2-matrix_divided.txt
+
+==============================
+How to Use 2-matrix_divided.py
+==============================
+
+This module defines a function that divides a matrix
+``matrix_divided(matrix, div)``.
+
+Usage
+=====
+
+``matrix_divided(...)``` returns a new matrix which contains the result of 
+the divsion of the elements in each rows by the value of div
+``matrix`` with all elements by ``div``.
+
+::
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [
+    ... [3, 6, 9],
+    ... [21, 15, 12]
+    ... ]
+    >>> print(matrix_divided(matrix, 3))
+    [[1.0, 2.0, 3.0], [7.0, 5.0, 4.0]]
+
+Note that the results of the division that are floats numbers are rounded up to
+a maximum of two decimal places.
+
+::
+
+    >>> matrix = [
+    ...  [1, 2, 3],
+    ...  [4, 5, 6]
+    ... ]
+    >>> print(matrix_divided(matrix, 3))
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+The matrix is left unchanged
+
+    >>> print(matrix)
+    [[1, 2, 3], [4, 5, 6]]
+
+::
+
+   >>> matrix = [
+   ...  [1.1, -5.4, 2.3],
+   ...  [4.4, -2.2, 3.3]
+   ... ]
+   >>> print(matrix_divided(matrix, 3))
+   [[0.37, -1.8, 0.77], [1.47, -0.73, 1.1]]
+
+Elements in the list can also be intgers or floating point numbers
+
+::
+
+   >>> matrix = [
+   ...  [1.1, 5, 2.33],
+   ...  [4.4, -2.2, 20]
+   ... ]
+   >>> print(matrix_divided(matrix, 3))
+   [[0.37, 1.67, 0.78], [1.47, -0.73, 6.67]]
+
+Checks for nan and infinity numbers, the result will still be zero regardless
+
+::
+
+    >>> matrix = [
+    ...  [1.1, 5, 2.33],
+    ...  [4.4, -2.2, 20]
+    ... ]
+    >>> print(matrix_divided(matrix, float("nan")))
+    [[nan, nan, nan], [nan, nan, nan]]
+
+::
+
+    >>> matrix = [
+    ...  [1.1, 5, 2.33],
+    ...  [4.4, -2.2, 20]
+    ... ]
+    >>> print(matrix_divided(matrix, float("inf")))
+    [[0.0, 0.0, 0.0], [0.0, -0.0, 0.0]]
+
+Invalid Matrices
+================
+
+The parameter ``matrix`` must be a list of lists consisting of either 
+ints or floats. if ``matrix`` is not a list, a TypeError is raised.
+
+::
+
+    >>> matrix = "not a list"
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+
+    >>> matrix = "not a list"
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+
+    >>> matrix = [[]]
+    >>> print(matrix_divided(matrix, 3))
+    [[]]
+
+An ientical TypeError is raised if ``matrix`` is not specifically a list of
+lists
+
+::
+
+    >>> matrix = [1, 2, 3]
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+A type error is also raised if the elements in each row is not an integer or
+floats
+
+::
+
+    >>> matrix = [
+    ...  [1, "not a number", 3],
+    ...  [4, 5, 6]
+    ... ]
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Checks for when all the rows in the ``matrix`` are not the same size, TypeError
+is raised
+
+::
+
+    >>> matrix = [
+    ...  [1, 2, 3, 5],
+    ...  [4, 5, 6]
+    ... ]
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+Invalid Divisors
+================
+
+The value in div has to be an int or a float type
+if its not a TypeError is raised
+
+::
+
+    >>> matrix = [
+    ...  [5, 4, 6],
+    ...  [7, 8, 9]
+    ... ]
+    >>> print(matrix_divided(matrix, "4"))
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+::
+
+    >>> print(matrix_divided(matrix, None))
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+``div`` must also be a non-zero integer, otherwise a ZeroDivisionError is
+raised
+
+::
+
+    >>> print(matrix_divided(matrix, 0))
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
