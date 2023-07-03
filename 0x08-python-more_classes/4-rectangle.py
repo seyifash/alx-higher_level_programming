@@ -64,5 +64,5 @@ class Rectangle:
         return "".join(rect)
 
     def __repr__(self):
-         """The internal representation of a rectangle"""
-         return f"Rectangle({self.__width}, {self.__height})"
+        """The internal representation of a rectangle"""
+        return f"Rectangle({self.__width}, {self.__height})"
