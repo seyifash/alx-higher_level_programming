@@ -122,31 +122,31 @@ class Base:
         except IOError:
             return []
 
-        @staticmethod
-        def draw(list_rectangles, list_squares):
-            """Opens a window and draws all the Rectangles and Squares
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Opens a window and draws all the Rectangles and Squares
 
-            Args:
-                list_rectangles (list): a list of rectangle objects to draw.
-                list_squares (list): a list of square objects to draw
-            """
-            shape = turtle.Turtle()
-            shape.screen.bgcolor("black")
-            shape.hideturtle()
+        Args:
+            list_rectangles (list): a list of rectangle objects to draw.
+            list_squares (list): a list of square objects to draw
+        """
+        shap = turtle.Turtle()
+        shap.screen.bgcolor("black")
+        shap.hideturtle()
 
-            def _displayshape(color, objects):
-                """displays the shape"""
-                shape.color(color)
-                for obj in objects:
-                    shape.penup()
-                    shape.goto(obj.x, obj.y)
-                    shape.pendown()
+        def _displayshape(color, objects):
+            """displays the shape"""
+            shape.color(color)
+            for obj in objects:
+                shap.penup()
+                shap.goto(obj.x, obj.y)
+                shap.pendown()
 
-                for i in range(2):
-                    shape.forward(obj.width)
-                    shape.left(90)
-                    shape.forward(obj.height)
-                    shape.left(90)
+            for i in range(2):
+                shap.forward(obj.width)
+                shap.left(90)
+                shap.forward(obj.height)
+                shap.left(90)
 
         _displayshape("blue", list_rectangles)
         _displayshape("pink", list_squares)
