@@ -40,8 +40,8 @@ class Base:
             if list_objs is None:
                 f.write("[]")
             else:
-                result = [objs.to_dictionary() for objs in list_objs]
-            f.write(Base.to_json_string(result))
+                result = [obj.to_dictionary() for obj in list_objs]
+                f.write(Base.to_json_string(result))
 
     @staticmethod
     def from_json_string(json_string):
