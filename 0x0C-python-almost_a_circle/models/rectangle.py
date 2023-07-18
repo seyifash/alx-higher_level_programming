@@ -90,6 +90,7 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
+        """displays the rectangle using the # character"""
         [print("") for i in range(self.__y)]
         for i in range(self.__height):
             [print(" ", end="") for j in range(self.__x)]
