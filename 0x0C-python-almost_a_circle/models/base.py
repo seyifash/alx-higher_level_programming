@@ -2,7 +2,6 @@
 """scripts contains a base class for the model"""
 import json
 import csv
-import turtle
 
 
 class Base:
@@ -122,20 +121,19 @@ class Base:
         except IOError:
             return []
 
-    @staticmethod
+    """@staticmethod
     def draw(list_rectangles, list_squares):
-        """Opens a window and draws all the Rectangles and Squares
+        Opens a window and draws all the Rectangles and Squares
 
         Args:
             list_rectangles (list): a list of rectangle objects to draw.
             list_squares (list): a list of square objects to draw
-        """
         shap = turtle.Turtle()
         shap.screen.bgcolor("black")
         shap.hideturtle()
 
         def _displayshape(color, objects):
-            """displays the shape"""
+            displays the shape
             shape.color(color)
             for obj in objects:
                 shap.penup()
@@ -152,3 +150,4 @@ class Base:
         _displayshape("pink", list_squares)
 
         turtle.exitonclick()
+        """
