@@ -8,8 +8,8 @@ Unittest classes:
     TestBase_save_to_file
     TestBase_from_json_string
     TestBase_create
-    TestBase_load_from_file 
-    TestBase_save_to_file_csv 
+    TestBase_load_from_file
+    TestBase_save_to_file_csv
     TestBase_load_from_file_csv
 """
 import os
@@ -104,6 +104,7 @@ class TestBaseInstances(unittest.TestCase):
     def test_two_args(self):
         with self.assertRaises(TypeError):
             Base(1, 2)
+
 
 class TestBase_to_json_string(unittest.TestCase):
     """Unittests for testing to_json_string method of Base class."""
@@ -547,4 +548,3 @@ class TestBase_load_from_file_csv(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
