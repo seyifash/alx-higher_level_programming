@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-"""script contains a rectangle class that inherit from base class"""
+"""Defines a rectangle class."""
 from models.base import Base
 
 
 class Rectangle(Base):
-    """A class that represents a rectangle"""
+    """Represents a rectangle"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """initialize the objects for the rectangle class
+
         Args:
             width (int): The width of the new Rectangle.
             height (int): The height of the new Rectangle.
