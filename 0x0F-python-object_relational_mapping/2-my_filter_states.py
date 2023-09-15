@@ -20,8 +20,18 @@ if __name__ == "__main__":
             )
 
     mycursor = db.cursor()
-    sql_query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    mycursor.execute(sql_query, (state_name,))
+    sql_query = """
+    SELECT *
+    FROM states
+    WHERE name = %s
+    ORDER BY id ASC
+    """
+    mycursor.execute("""
+    SELECT *
+    FROM states
+    WHERE name LIKE BINARY '{}'
+    ORDER BY id ASC
+    """.format(state_name))
     states = mycursor.fetchall()
 
     for state in states:
