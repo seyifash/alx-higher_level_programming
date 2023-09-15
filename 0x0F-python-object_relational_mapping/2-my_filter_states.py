@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""script that takes in an argument and displays all values in the states
+"""
 import MySQLdb
 import sys
 
@@ -9,21 +11,21 @@ if __name__ == "__main__":
     database = sys.argv[3]
     state_name = sys.argv[4]
 
-db = MySQLdb.connect(
-         host="localhost",
-         port=3306,
-         user=username,
-         passwd=password,
-         db=database
-         )
+    db = MySQLdb.connect(
+            host="localhost",
+            port=3306,
+            user=username,
+            passwd=password,
+            db=database
+            )
 
-mycursor = db.cursor()
-sql_query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
-mycursor.execute(sql_query)
-states = mycursor.fetchall()
+    mycursor = db.cursor()
+    sql_query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
+    mycursor.execute(sql_query)
+    states = mycursor.fetchall()
 
-for state in states:
-    print(state)
+    for state in states:
+        print(state)
 
-mycursor.close()
-db.close()
+    mycursor.close()
+    db.close()
