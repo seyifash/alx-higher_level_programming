@@ -6,7 +6,6 @@ import sys
 from sqlalchemy import Column, Integer, String, ForeignKey
 from relationship_state import Base
 
-
 class City(Base):
     """
     Represents a state in the 'states' table of the database.
