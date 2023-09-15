@@ -19,12 +19,12 @@ if __name__ == "__main__":
             )
 
     mycursor = db.cursor()
-    sql_query = """
-            SELECT * FROM states
+    mycursor.execute("""
+            SELECT *
+            FROM states
             WHERE name LIKE 'N%'
             ORDER BY id ASC
-        """
-    mycursor.execute(sql_query)
+        """)
     states = mycursor.fetchall()
 
     for state in states:
