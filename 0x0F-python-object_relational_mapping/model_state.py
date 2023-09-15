@@ -8,6 +8,13 @@ Base = declarative_base()
 
 
 class State(Base):
+    """
+    Represents a state in the 'states' table of the database.
+
+    Args:
+    id (int): An auto-generated, unique integer, primary key.
+    name (str): A string with a maximum length of 128 characters.
+    """
     __tablename__ = 'states'
 
     id = Column(Integer, primary_key=True, nullable=False, unique=True)
