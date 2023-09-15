@@ -23,4 +23,4 @@ class City(Base):
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
 
-    state_relation = relationship("State", overlaps="cities,state")
+    state_rela = relationship("State", overlaps="cities,state")
