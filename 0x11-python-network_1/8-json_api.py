@@ -9,10 +9,9 @@ import requests
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        letter = ""
+        data = {"q": ""}
     else:
-        letter = sys.argv[1]
-    data = {"q": letter}
+        data = {"q": sys.argv[1]}
 
     r = requests.post("http://0.0.0.0:5000/search_user", data=data)
     try:
