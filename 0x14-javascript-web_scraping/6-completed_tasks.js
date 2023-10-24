@@ -15,7 +15,8 @@ request(process.argv[2], (error, response, body) => {
       }
     }
   });
-  for (const userId in completedTask) {
-    console.log(`${userId}: ${completedTask[userId]}`);
-  }
+  const results = Object.keys(completedTask).map((userId) => {
+    return `${userId}: ${completedTask[userId]}`;
+  });
+  console.log(results.join('\n'));
 });
