@@ -4,13 +4,13 @@ request(process.argv[2], (error, response, body) => {
   if (error) {
     console.error(error);
   } else {
-    const moviesDat = JSON.parse(body);
-    let count = 0;
-    moviesDat.results.forEach((movie) => {
-      if (movie.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
-        count++;
+    const moviesData = JSON.parse(body);
+    const count = moviesData.results.reduce((acc, movie) => {
+      if (movie.characters.some(character => character.endsWith('/18/'))) {
+        return acc + 1;
       }
-    });
+      return acc;
+    }, 0);
     console.log(`${count}`);
   }
 });
