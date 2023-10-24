@@ -1,8 +1,8 @@
 #!/usr/bin/node
 const request = require('request');
 request(process.argv[2], (error, response, body) => {
-  if (error) {
-    console.log(error);
+  if (error && response.statusCoe !== 200) {
+    console.error(error);
   }
   const taskData = JSON.parse(body);
   const completedTask = {};
